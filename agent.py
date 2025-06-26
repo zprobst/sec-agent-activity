@@ -21,12 +21,24 @@ and design decisions that SAST/SCA tools cannot detect.
 
 @tool
 def current_time() -> str:
+    """Returns the current date and time
+
+    Returns:
+        str: The current date and time in ISO format.
+    """
     return datetime.now().isoformat()
 
 
 @tool
 def list_files(path: str) -> str:
-    """Reads all the files in a directory and returns a list of file names"""
+    """Reads all the files in a directory and returns a list of file names
+
+    Args:
+        path (str): The path to the directory to list files from.
+
+    Returns:
+        str: A list of file names in the directory.
+    """
     dir = Path(path)
     return [
         str(p.relative_to())

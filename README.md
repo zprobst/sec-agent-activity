@@ -18,7 +18,9 @@ that can analyze software repositories for **architectural and design-level secu
 
 2. **Install Python dependencies**:
    ```bash
-   pip install -r requirements.txt
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   uv venv --python 3.11
+   uv pip install -r requirements.txt
    ```
 
 ## Activity 0: Getting Started
@@ -33,7 +35,7 @@ Understand the basic concepts of LangGraph and architectural security analysis.
 
 2. **Run the Basic Agent**
    ```bash
-   python agent.py ./test-repo
+   uv run python agent.py ./test-repo
    ```
 
 Notice the output here is not particularly helpful. We need to add more tools to the agent.

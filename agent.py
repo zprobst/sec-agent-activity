@@ -62,7 +62,9 @@ def main():
     directory = sys.argv[1]
     message = f"Search the directory {directory} for security issues."
     input = {"messages": [{"role": "user", "content": message}]}
-    print(agent.invoke(input))
+    state = agent.invoke(input)
+    for message in state["messages"]:
+        print(message.content)
 
 
 if __name__ == "__main__":

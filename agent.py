@@ -41,7 +41,7 @@ def list_files(path: str) -> str:
     """
     dir = Path(path)
     return [
-        str(p.relative_to())
+        str(p.relative_to(dir))
         for p in dir.rglob("*")
         if p.is_file() and p.suffix in ALLOWED_EXTENSIONS
     ]

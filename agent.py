@@ -1,6 +1,7 @@
-from datetime import datetime
 import sys
+from datetime import datetime
 from pathlib import Path
+from typing import List
 
 from langchain_core.tools import tool
 from langgraph.prebuilt import create_react_agent
@@ -30,7 +31,7 @@ def current_time() -> str:
 
 
 @tool
-def list_files(path: str) -> str:
+def list_files(path: str) -> List[str]:
     """Reads all the files in a directory and returns a list of file names
 
     Args:
@@ -40,11 +41,13 @@ def list_files(path: str) -> str:
         str: A list of file names in the directory.
     """
     dir = Path(path)
-    return [
+    files = [
         str(p.relative_to(dir))
         for p in dir.rglob("*")
         if p.is_file() and p.suffix in ALLOWED_EXTENSIONS
     ]
+    print(f"Found {len(files)} files in {path}")
+    return files
 
 
 def build_agent():

@@ -60,7 +60,9 @@ def build_agent():
 def main():
     agent = build_agent()
     directory = sys.argv[1]
-    agent.invoke(f"Search the directory {directory} for security issues.")
+    message = f"Search the directory {directory} for security issues."
+    input = {"messages": [{"role": "user", "content": message}]}
+    agent.invoke(input)
 
 
 if __name__ == "__main__":

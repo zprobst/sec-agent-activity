@@ -50,7 +50,7 @@ def list_files(path: str) -> str:
 def build_agent():
     tools = [current_time]
     agent = create_react_agent(
-        llm=LLM,
+        model=LLM,
         tools=tools,
         prompt=SYSTEM_PROMPT,
     )

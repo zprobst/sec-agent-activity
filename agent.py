@@ -4,10 +4,10 @@ from pathlib import Path
 
 from langchain_core.tools import tool
 from langgraph.prebuilt import create_react_agent
-from langchain_ollama import OllamaLLM
+from langchain_ollama import ChatOllama
 
 MODEL_NAME = "llama3.2:3b"
-LLM = OllamaLLM(model=MODEL_NAME)
+LLM = ChatOllama(model=MODEL_NAME)
 ALLOWED_EXTENSIONS = [".py", ".md"]
 
 SYSTEM_PROMPT = """
